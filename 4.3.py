@@ -1,16 +1,5 @@
-###
-# Calculates the area of a triangle based on the lengths
-# of the triangle's sides
-#
-import math
-a = int(input('a: '))
-b = int(input('b: '))
-c = int(input('c: '))
-def triangle_area(a,b,c):
-    s = (a + b + c)/2
-    result = math.sqrt(s*(s-a)*(s-b)*(s-c))
-    return result
-area = triangle_area(a,b,c)
-print(f'The area of ​​a triangle with sides {a,b,c} is {area}')
-print(f'The area of ​​a triangle with sides ... is ...')
-print(f'The area of ​​a triangle with sides ... is ...')
+grades = [3.0, 5.0, 2.0, 3.5, 4.0, 4.0, 3.5, 2.0, 4.0, 2.0]
+valid_grades = list(filter(lambda g: g != 2.0, grades))
+mean = sum(valid_grades) / len(valid_grades)
+
+print(f"Arithmetic mean for grades <> 2.0 is {mean:.2f}")

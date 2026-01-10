@@ -1,7 +1,4 @@
-###
-# Generates and prints a random number between 1 and 6,
-# similar to rolling a dice
-#
-import random
-
-print(random.randint(1,6))
+sentence = 'I completely agree with you'
+result = list(map(lambda w: len(w), sentence.split()))
+print(f"Text: {sentence}")
+print(f"No. of letters in words: {result}")
