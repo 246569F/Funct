@@ -1,15 +1,18 @@
 
-
 def time_string(hours, minutes, time_format):
-    result = ' '
     if time_format == '24':
-        result = (f'{hours}:{minutes}')
-    elif time_format == '12' and hours > 12:
-        result = (f'{hours - 12}:{minutes}PM')
-    elif time_format == '12':
-        result = (f'{hours}:{minutes}PM')
-hours = int(input('Input hour: '))
-minutes = int(input('Input minutes: '))
-time_format = int(input('Input Time format: '))
-date = time_string(hours, minutes, time_format)
-print(date)
+        return f"{hours:02d}:{minutes:02d}"
+
+    if time_format == '12':
+        suffix = "am" if hours < 12 else "pm"
+        h12 = hours % 12
+        if h12 == 0:
+            h12 = 12
+        return f"{h12}:{minutes:02d}{suffix}"
+
+    raise ValueError("time_format must be '24' or '12'")
+hours = int(input('Input hour (0-23): '))
+minutes = int(input('Input minutes (0-59): '))
+time_format = input("Input time format ('24' or '12'): ")
+
+print(time_string(hours, minutes, time_format))
